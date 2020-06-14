@@ -9,6 +9,7 @@ const EditForm = ({ onCancel, onSubmit, initialData }) => {
   const [name, setName] = useState(initialData.data.name || "")
   const [comment, setComment] = useState(initialData.data.comment || "")
   const [square, setSquare] = useState(initialData.data.square || null)
+  const [id, setId] = useState(initialData.data.id || "")
 
   // собирает данные из инпутов и прокидывает их наверх
   const handleSubmit = (event) => {
@@ -16,6 +17,7 @@ const EditForm = ({ onCancel, onSubmit, initialData }) => {
     event.preventDefault()
     onSubmit({
       name: name,
+      id: id,
       comment: comment,
       square: square,
     })

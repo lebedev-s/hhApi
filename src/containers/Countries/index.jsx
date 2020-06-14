@@ -37,8 +37,6 @@ const Countries = () => {
       .catch(error => console.log(error))
   }, [])
 
-
-
   const handleDoubleClick = (event) => {
     setToEditData({
       idx: event.index,

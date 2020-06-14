@@ -28,8 +28,12 @@ const countriesReducer = (state = initialState, action) =>
         draft.error = action.error
         break
       case EDIT_ITEM_DATA:
-        //action.newData.idx - индекс объекта, который редактируется в таблице
-        draft.data[action.newData.idx] = action.newData.data
+        draft.data.filter((item, index) => {
+          if (item.id === action.newData.data.id) {
+            draft.data.splice(index, 1)
+          }
+        })
+        draft.data.push(action.newData.data)
         break
       case REQUEST_DATA_FROM_DB:
         draft.loading = true
